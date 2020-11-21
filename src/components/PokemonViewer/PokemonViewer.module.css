@@ -1,0 +1,23 @@
+.PokemonViewer {
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+  border: 1px solid red;
+  padding: 3px;
+}
+
+.LoaderBoundary {
+  padding: 5px;
+  display: flex;
+  height: 400px;
+  width: 300px;
+  margin-left: 300px;
+  border: 1px solid red;
+}
+
+.HintStyle {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 320px;
+}
