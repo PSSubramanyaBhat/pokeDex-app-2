@@ -8,6 +8,7 @@
   padding: 3px;
 }
 
+/* 
 .LoaderBoundary {
   padding: 5px;
   display: flex;
@@ -15,6 +16,24 @@
   width: 300px;
   margin-left: 300px;
   border: 1px solid red;
+} */
+
+.LoaderBoundary {
+  padding: 5px;
+  display: flex;
+  /* height: 400px; */
+  height: 260px;
+  width: 300px;
+  margin-left: 300px;
+  /* border: 1px solid red; */
+  /* border: 1px solid grey; */
+
+  /* border: 1px solid rgb(187, 183, 183);*/ /*GREY  BACKGROUND..... */
+  /* border: 1px solid rgb(84, 151, 228); */
+  /* background-color: rgb(187, 183, 183); */
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: 10px 10px 15px #444; */
 }
 
 .HintStyle {

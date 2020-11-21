@@ -14,8 +14,7 @@ p {
 .Spinner {
   height: 40px;
   width: 40px;
-  margin-left: 90px;
-
+  margin-left: 15px;
   border-radius: 50%;
   border: 2px solid green;
   border-top: 2px solid transparent;

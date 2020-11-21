@@ -1,14 +1,77 @@
 .PokemonView {
   padding: 5px;
   display: flex;
-  height: 400px;
+  /* height: 400px; */
+  height: 260px;
   width: 300px;
   margin-left: 300px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  /* border: 1px solid grey; */
+  border: 1px solid rgb(187, 183, 183);
+  background-color: rgb(187, 183, 183);
   justify-content: center;
   align-items: center;
+  box-shadow: 10px 10px 15px #444;
+}
+
+.PokemonView:hover {
+  animation: zoomin 500ms forwards 1;
+  
+}
+
+@keyframes zoomin {
+  /* from {
+    transform: rotate(0deg);
+  } */
+  to {
+    transform: scale(1.1);
+  }
+}
+
+
+.PokemonInfo {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  /* height: 400px; */
+  height: 300px;
+  width: 300px;
+  margin-left: 300px;
+  padding-left: -90px;
+  /* border: 1px solid red; */
+  /* border: 1px solid grey; */
+  border-bottom: 1px solid rgb(187, 183, 183);
+  border-left: 1px solid rgb(187, 183, 183);
+  border-right: 1px solid rgb(187, 183, 183);
+  background-color: #fff;
+  text-align: start;
+  box-shadow: 10px 10px 15px #444;
+}
+
+p {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.PokeArr {
+  margin-left: 50px;
+  margin-top: -32px;
+  display: flex;
+}
+
+.PokeName {
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .PokemonImage {
-  width: 280px;
+  margin-top: -40px;
+  /* width: 280px; */
+  width: 240px;
+  /* background-color: grey; */
+}
+
+.PokemonCard {
+  display: flex;
+  flex-direction: column;
 }
