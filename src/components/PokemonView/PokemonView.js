@@ -67,12 +67,20 @@ const PokemonView = ({ pokemon }) => {
   }
 
 
-  for (let i = 0; i < 2; i++) {
-    let resultValue = pokemonMoves[i].move.name;
+
+  if (pokemonMoves.length === 1) {
+    let resultValue = pokemonMoves[0].move.name;
     move_arr.push(resultValue);
     // setPokeMoves([...move_arr, resultValue]); //SEMI WORKING......
+  } else {
+    for (let i = 0; i < 2; i++) {
+      let resultValue = pokemonMoves[i].move.name;
+      move_arr.push(resultValue);
+      // setPokeMoves([...move_arr, resultValue]); //SEMI WORKING......
+    }
   }
 
+  
   if (pokemonAbilities.length === 1) {
     let abilityResultValue = pokemonAbilities[0].ability.name;
     abilitiy_arr.push(abilityResultValue);
@@ -145,3 +153,9 @@ PokemonView.propTypes = {};
 
 // export default {PokemonView, pokemonIDValue};
 export default PokemonView;
+
+
+
+/*
+make moves as 1... for some pokemons...
+*/

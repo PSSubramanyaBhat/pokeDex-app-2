@@ -92,7 +92,8 @@ const SearchField = ({
     );
 
     setPokemonID(id_value);   //SEMI WORKING......
-    const BASE_URL_STRING = "https://pokeapi.co/api/v2/";
+
+    // const BASE_URL_STRING = "https://pokeapi.co/api/v2/";
     const pokeMonSuggestionURL = `?limit=10&offset=${pokemonID}`;
     console.log('HEYYY...', pokeMonSuggestionURL);
     console.log(pokemonID);
