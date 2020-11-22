@@ -1,7 +1,7 @@
 import "./App.css";
 
 import React, { useEffect, useState } from "react";
-
+import lget from "lodash/get";
 import ErrorBoundary from "./ErrorBoundary";
 import PokemonViewer from "./components/PokemonViewer/PokemonViewer";
 import SearchField from "./components/SearchField/SearchField";
@@ -34,9 +34,14 @@ function App() {
       });
   }, [searchTerm]);
 
+  let pokemonIDValue = lget(
+    pokemon,
+    "id"
+  );
+
   return (
     <div className="App">
-      <SearchField onSearchClicked={(search) => setSearchTerm(search)} />
+      <SearchField onSearchClicked={(search) => setSearchTerm(search)} pokemonIDValue={pokemonIDValue}/>
       <ErrorBoundary>
         <PokemonViewer pokemonData={pokemon} status={status} />
       </ErrorBoundary>

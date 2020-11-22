@@ -5,7 +5,6 @@ import { on } from "process";
 import lget from "lodash/get";
 import { fetchPokemonURL, fetchAPokemon } from "../../api";
 import styles from "./SearchField.module.css";
-// import {PokemonView, pokemonIDValue} from '../PokemonView/PokemonView.js' 
 
 
 
@@ -13,92 +12,42 @@ import styles from "./SearchField.module.css";
 const SearchField = ({
   placeholder = "Enter pokemon name",
   onSearchClicked = (search) => { },
+  pokemonIDValue,
 }) => {
 
   const arr = [];
   const [text, setText] = useState("");
-
-  const [pokemon, setPokemon] = useState(undefined);
-  const [pokemonID, setPokemonID] = useState(undefined);
   const [suggestedArray, setSuggestedArray] = useState([]);
-
   const [fetchingUrl, setFetchingUrl] = useState('');
 
-  useEffect(() => {
+  /*useEffect(() => {
     searchFunction();
-  }, [fetchingUrl])
-
-  // useEffect(() => {
-  //   onSearchClicked(suggestedArray);
-  //   setText(suggestedArray);
-  //   searchFunction();
-  // },[fetchingUrl])
+  }, [pokemonIDValue])
+  */   //PERFECTLY WORKING CODE...
 
   useEffect(() => {
-    fetchAPokemon(text)
-      .then((pokemon) => {
-        setPokemon(pokemon);
-        // setStatus("resolved");
-      })
-      .catch((error) => {
-        //process the error
-        // setStatus("error");
-        console.log("error");
-      });
-    setPokemonID(pokemonID);
 
-
+    searchFunction();  //SEMI WORKING... BUT AWESOME...
     fetchAPokemon(fetchingUrl)
       .then((resultValue) => {
         let answer = resultValue.results;
         for (let i = 0; i < 10; i++) {
           let answervalue = answer[i].name;
-          arr.push(answervalue);
-          // setSuggestedArray(answervalue); //SEMI WORKING......
-          setSuggestedArray([...arr, answervalue]); //SEMI WORKING......
-          // setSuggestedArray(arr);//SEMI WORKING......
+          setSuggestedArray([...arr, answervalue]);
+          setSuggestedArray([...arr]);
         }
       })
       .catch((error) => {
-        // setStatus("error");
         console.log("error");
       });
     setFetchingUrl(fetchingUrl);
     console.log("ASHHH", suggestedArray);
-    // searchFunction();
   }, [text])
-
-
-
-  console.log("B3NKIGUYERTGY7RYIT3YTEIOGQ.............", suggestedArray);
 
   function searchFunction() {
     onSearchClicked(text);
-
-    fetchAPokemon(text)
-      .then((pokemon) => {
-        setPokemon(pokemon);
-        // setStatus("resolved");
-      })
-      .catch((error) => {
-        //process the error
-        // setStatus("error");
-        console.log("error");
-      });
-
-    let id_value = lget(
-      pokemon,
-      "id"
-    );
-
-    setPokemonID(id_value);   //SEMI WORKING......
-
-    // const BASE_URL_STRING = "https://pokeapi.co/api/v2/";
-    const pokeMonSuggestionURL = `?limit=10&offset=${pokemonID}`;
-    console.log('HEYYY...', pokeMonSuggestionURL);
-    console.log(pokemonID);
+    const pokeMonSuggestionURL = `?limit=10&offset=${pokemonIDValue}`;
     setFetchingUrl(pokeMonSuggestionURL);
-    console.log('WASSUP POKEMONS...', fetchingUrl);
 
     fetchAPokemon(pokeMonSuggestionURL)
       .then((resultValue) => {
@@ -107,17 +56,14 @@ const SearchField = ({
         for (let i = 0; i < 10; i++) {
           let answervalue = answer[i].name;
           arr.push(answervalue);
-          setSuggestedArray([...arr, answervalue]); //SEMI WORKING......
+          setSuggestedArray([...arr, answervalue]);
+          setSuggestedArray([...arr]);
         }
       })
       .catch((error) => {
-        // setStatus("error");
         console.log("error");
       });
-
-    console.log("ASHHH", suggestedArray);
   }
-
 
   return (
     <div className={styles.SearchField}>
@@ -137,9 +83,7 @@ const SearchField = ({
         disabled={text === ""}
         className={styles.SearchButton}
         onClick={() => {
-
           searchFunction()
-
         }
         }
       >
@@ -152,15 +96,13 @@ const SearchField = ({
         </button>
         <div class={styles.dropdownContent}>
 
-          {/* {dropDownDisplay()} */}
-
           {suggestedArray.map((suggestPokeData) => {
             return (
               <p
                 onClick={() => {
                   onSearchClicked(suggestPokeData);
                   setText(suggestPokeData);
-                  // searchFunction();
+                  searchFunction();
                 }}
               >{suggestPokeData}</p>
             );
