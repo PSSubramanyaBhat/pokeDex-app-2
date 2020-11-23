@@ -5,6 +5,7 @@ import { on } from "process";
 import lget from "lodash/get";
 import { fetchPokemonURL, fetchAPokemon } from "../../api";
 import styles from "./SearchField.module.css";
+import ErrorBoundary from "../../ErrorBoundary";
 
 const SearchField = ({
   placeholder = "Enter pokemon name",
@@ -82,25 +83,27 @@ const SearchField = ({
         Search
       </button>
 
-      <div className={styles.dropdown}>
-        <button className={styles.dropbtn}>Suggest</button>
-        <div className={styles.dropdownContent}>
-          {suggestedArray.map((suggestPokeData, idx) => {
-            return (
-              <p
-                key={idx}
-                onClick={() => {
-                  onSearchClicked(suggestPokeData);
-                  setText(suggestPokeData);
-                  searchFunction();
-                }}
-              >
-                {suggestPokeData}
-              </p>
-            );
-          })}
+      <ErrorBoundary>
+        <div className={styles.dropdown}>
+          <button className={styles.dropbtn}>Suggest</button>
+          <div className={styles.dropdownContent}>
+            {suggestedArray.map((suggestPokeData, idx) => {
+              return (
+                <p
+                  key={idx}
+                  onClick={() => {
+                    onSearchClicked(suggestPokeData);
+                    setText(suggestPokeData);
+                    searchFunction();
+                  }}
+                >
+                  {suggestPokeData}
+                </p>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </ErrorBoundary>
     </div>
   );
 };
@@ -111,7 +114,6 @@ export default SearchField;
 
 /*
 POINTS LEFT TO ACCOMPLISH...
-3.) ErrorBoundary Add...
 4.) Make the search on click of suggested list itself and no need to reclick search for that...
 5.) Add these functionalities in My pokeDex App...
 6.) Use Prop Drilling as much as possible and also try ContextAPI...

@@ -7,7 +7,6 @@ import PokemonViewer from "./components/PokemonViewer/PokemonViewer";
 import SearchField from "./components/SearchField/SearchField";
 import { fetchAPokemon } from "./api";
 
-
 // const BASE_URL = "https://pokeapi.co/api/v2/";
 // `${BASE_URL}pokemon?limit=10&offset=200`
 
@@ -34,14 +33,14 @@ function App() {
       });
   }, [searchTerm]);
 
-  let pokemonIDValue = lget(
-    pokemon,
-    "id"
-  );
+  let pokemonIDValue = lget(pokemon, "id");
 
   return (
     <div className="App">
-      <SearchField onSearchClicked={(search) => setSearchTerm(search)} pokemonIDValue={pokemonIDValue}/>
+      <SearchField
+        onSearchClicked={(search) => setSearchTerm(search)}
+        pokemonIDValue={pokemonIDValue}
+      />
       <ErrorBoundary>
         <PokemonViewer pokemonData={pokemon} status={status} />
       </ErrorBoundary>

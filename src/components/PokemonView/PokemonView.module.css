@@ -17,7 +17,6 @@
 
 .PokemonView:hover {
   animation: zoomin 500ms forwards 1;
-  
 }
 
 @keyframes zoomin {
@@ -28,7 +27,6 @@
     transform: scale(1.1);
   }
 }
-
 
 .PokemonInfo {
   padding: 5px;

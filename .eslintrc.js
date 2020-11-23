@@ -12,6 +12,7 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "import"],
+  parser: "babel-eslint",
   rules: {
     semi: "error",
     "react/jsx-uses-vars": "error",

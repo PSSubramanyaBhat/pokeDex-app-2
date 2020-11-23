@@ -20,8 +20,7 @@
     "*.(js|css)": [
       "npm run format",
       "prettier --write",
-      "git add",
-      "npm run lint-js"
+      "git add"
     ],
     "*.pretty-quick": "prettier --write"
   },
