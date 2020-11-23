@@ -16,37 +16,39 @@ const SearchField = ({
   const [text, setText] = useState("");
   const [suggestedArray, setSuggestedArray] = useState([]);
   const [fetchingUrl, setFetchingUrl] = useState(""); //PERFECTLY WORKING CODE...
+  const [searchTrigger, setSearchTrigger] = useState(0);
+
+  useEffect(() => {
+    searchFunction();
+  }, [fetchingUrl]);
 
   /*useEffect(() => {
     searchFunction();
   }, [pokemonIDValue])
-  */ useEffect(() => {
-    searchFunction(); //SEMI WORKING... BUT AWESOME...
-    fetchAPokemon(fetchingUrl)
-      .then((resultValue) => {
-        let answer = resultValue.results;
-        for (let i = 0; i < 10; i++) {
-          let answervalue = answer[i].name;
-          setSuggestedArray([...arr, answervalue]);
-          setSuggestedArray([...arr]);
-        }
-      })
-      .catch((error) => {
-        console.log("error");
-      });
-    setFetchingUrl(fetchingUrl);
-    console.log("ASHHH", suggestedArray);
+  */
+
+  // useEffect(() => {
+  //   searchFunction();
+  //   // suggestionFunction();
+  // }, [searchTrigger]);
+
+  useEffect(() => {
+    // searchFunction(); //SEMI WORKING... BUT AWESOME...
+    suggestionFunction();
+    // console.log("ASHHH", suggestedArray);
   }, [text]);
 
   function searchFunction() {
     onSearchClicked(text);
     const pokeMonSuggestionURL = `?limit=10&offset=${pokemonIDValue}`;
     setFetchingUrl(pokeMonSuggestionURL);
+    // suggestionFunction();
+  }
 
-    fetchAPokemon(pokeMonSuggestionURL)
+  function suggestionFunction() {
+    fetchAPokemon(fetchingUrl)
       .then((resultValue) => {
         let answer = resultValue.results;
-
         for (let i = 0; i < 10; i++) {
           let answervalue = answer[i].name;
           arr.push(answervalue);
@@ -57,6 +59,8 @@ const SearchField = ({
       .catch((error) => {
         console.log("error");
       });
+    setFetchingUrl(fetchingUrl);
+    console.log("ASHHH", suggestedArray);
   }
 
   return (
@@ -77,6 +81,7 @@ const SearchField = ({
         disabled={text === ""}
         className={styles.SearchButton}
         onClick={() => {
+          // setSearchTrigger((c) => c + 1);
           searchFunction();
         }}
       >
@@ -92,6 +97,7 @@ const SearchField = ({
                 <p
                   key={idx}
                   onClick={() => {
+                    // setSearchTrigger((c) => c + 1);
                     onSearchClicked(suggestPokeData);
                     setText(suggestPokeData);
                     searchFunction();
