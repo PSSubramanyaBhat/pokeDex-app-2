@@ -4,7 +4,6 @@ import lget from "lodash/get";
 import styles from "./PokemonView.module.css";
 
 const PokemonView = ({ pokemon }) => {
-
   // const [pokeMoves, setPokeMoves] = useState([]);
   // const [pokeAbility, setPokeAbility] = useState([]);
   // const [pokeType, setPokeType] = useState([]);
@@ -18,55 +17,29 @@ const PokemonView = ({ pokemon }) => {
     "sprites.other.official-artwork.front_default"
   );
 
-  let pokemonIDValue = lget(
-    pokemon,
-    "id"
-  );
+  let pokemonIDValue = lget(pokemon, "id");
 
   // CODE FOR POKEDETAILS.....
 
-  let pokemonName = lget(
-    pokemon,
-    "name"
-  );
+  let pokemonName = lget(pokemon, "name");
 
-  let pokemonHeight = lget(
-    pokemon,
-    "height"
-  );
+  let pokemonHeight = lget(pokemon, "height");
 
-  let pokemonWeight = lget(
-    pokemon,
-    "weight"
-  );
+  let pokemonWeight = lget(pokemon, "weight");
 
-  let pokemonBaseExperience = lget(
-    pokemon,
-    "base_experience"
-  );
+  let pokemonBaseExperience = lget(pokemon, "base_experience");
 
-  let pokemonMoves = lget(
-    pokemon,
-    "moves"
-  );
+  let pokemonMoves = lget(pokemon, "moves");
 
-  let pokemonAbilities = lget(
-    pokemon,
-    "abilities"
-  );
+  let pokemonAbilities = lget(pokemon, "abilities");
 
-  let pokemonTypes = lget(
-    pokemon,
-    "types"
-  );
+  let pokemonTypes = lget(pokemon, "types");
 
   for (let i = 0; i < pokemonTypes.length; i++) {
     let resultTypeValue = pokemonTypes[i].type.name;
     type_arr.push(resultTypeValue);
     console.log("TYPE ARRAY...", type_arr);
   }
-
-
 
   if (pokemonMoves.length === 1) {
     let resultValue = pokemonMoves[0].move.name;
@@ -80,7 +53,6 @@ const PokemonView = ({ pokemon }) => {
     }
   }
 
-  
   if (pokemonAbilities.length === 1) {
     let abilityResultValue = pokemonAbilities[0].ability.name;
     abilitiy_arr.push(abilityResultValue);
@@ -92,9 +64,6 @@ const PokemonView = ({ pokemon }) => {
       // setPokeAbility([...abilitiy_arr, abilityResultValue]); //SEMI WORKING......
     }
   }
-
-
-
 
   if (!pokemonIDValue) {
     throw Error("Failed to fetch the data!");
@@ -116,32 +85,41 @@ const PokemonView = ({ pokemon }) => {
       </div>
       <div className={styles.PokemonInfo}>
         <p className={styles.PokeName}>{pokemonName}</p>
-        <p><b>#</b>{pokemonIDValue}</p>
-        <p><b>Height: </b> {pokemonHeight}</p>
-        <p><b>Weight: </b> {pokemonWeight}</p>
-        <p><b>HP: </b> {pokemonBaseExperience}</p>
-        <p><b>Types: </b> </p>
+        <p>
+          <b>#</b>
+          {pokemonIDValue}
+        </p>
+        <p>
+          <b>Height: </b> {pokemonHeight}
+        </p>
+        <p>
+          <b>Weight: </b> {pokemonWeight}
+        </p>
+        <p>
+          <b>HP: </b> {pokemonBaseExperience}
+        </p>
+        <p>
+          <b>Types: </b>{" "}
+        </p>
         <p className={styles.PokeArr}>
-          {type_arr.map((types) => {
-            return (
-              <p>{types}</p>
-            )
+          {type_arr.map((types, idx) => {
+            return <p key={idx}>{types}</p>;
           })}
         </p>
-        <p><b>Moves: </b> </p>
+        <p>
+          <b>Moves: </b>{" "}
+        </p>
         <p className={styles.PokeArr}>
-          {move_arr.map((movesValue) => {
-            return (
-              <p>{movesValue}</p>
-            )
+          {move_arr.map((movesValue, idx) => {
+            return <p key={idx}>{movesValue}</p>;
           })}
         </p>
-        <p><b>Ability: </b> </p>
+        <p>
+          <b>Ability: </b>{" "}
+        </p>
         <p className={styles.PokeArr}>
-          {abilitiy_arr.map((abilityValue) => {
-            return (
-              <p>{abilityValue}</p>
-            )
+          {abilitiy_arr.map((abilityValue, idx) => {
+            return <p key={idx}>{abilityValue}</p>;
           })}
         </p>
       </div>
@@ -153,8 +131,6 @@ PokemonView.propTypes = {};
 
 // export default {PokemonView, pokemonIDValue};
 export default PokemonView;
-
-
 
 /*
 make moves as 1... for some pokemons...

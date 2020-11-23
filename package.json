@@ -11,7 +11,20 @@
     "react-scripts": "4.0.0",
     "web-vitals": "^0.2.4"
   },
-  
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|css)": [
+      "npm run format",
+      "prettier --write",
+      "git add",
+      "npm run lint-js"
+    ],
+    "*.pretty-quick": "prettier --write"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -20,6 +33,10 @@
     "eject": "react-scripts eject",
     "generate": "plop && pretty-quick",
     "format": "pretty-quick",
+    "lint-js": "eslint src --ext .js",
+    "lint-fix": "npm run lint-js -- --fix",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -49,6 +66,10 @@
     "@storybook/node-logger": "^6.1.1",
     "@storybook/preset-create-react-app": "^3.1.5",
     "@storybook/react": "^6.1.1",
+    "eslint": "^7.14.0",
+    "eslint-plugin-react": "^7.21.5",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
     "plop": "^2.7.4",
     "prettier": "^2.2.0",
     "pretty-quick": "^3.1.0"

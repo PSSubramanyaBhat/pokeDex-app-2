@@ -6,28 +6,21 @@ import lget from "lodash/get";
 import { fetchPokemonURL, fetchAPokemon } from "../../api";
 import styles from "./SearchField.module.css";
 
-
-
-
 const SearchField = ({
   placeholder = "Enter pokemon name",
-  onSearchClicked = (search) => { },
+  onSearchClicked = (search) => {},
   pokemonIDValue,
 }) => {
-
   const arr = [];
   const [text, setText] = useState("");
   const [suggestedArray, setSuggestedArray] = useState([]);
-  const [fetchingUrl, setFetchingUrl] = useState('');
+  const [fetchingUrl, setFetchingUrl] = useState(""); //PERFECTLY WORKING CODE...
 
   /*useEffect(() => {
     searchFunction();
   }, [pokemonIDValue])
-  */   //PERFECTLY WORKING CODE...
-
-  useEffect(() => {
-
-    searchFunction();  //SEMI WORKING... BUT AWESOME...
+  */ useEffect(() => {
+    searchFunction(); //SEMI WORKING... BUT AWESOME...
     fetchAPokemon(fetchingUrl)
       .then((resultValue) => {
         let answer = resultValue.results;
@@ -42,7 +35,7 @@ const SearchField = ({
       });
     setFetchingUrl(fetchingUrl);
     console.log("ASHHH", suggestedArray);
-  }, [text])
+  }, [text]);
 
   function searchFunction() {
     onSearchClicked(text);
@@ -83,34 +76,32 @@ const SearchField = ({
         disabled={text === ""}
         className={styles.SearchButton}
         onClick={() => {
-          searchFunction()
-        }
-        }
+          searchFunction();
+        }}
       >
         Search
       </button>
 
-      <div class={styles.dropdown}>
-        <button class={styles.dropbtn}>
-          Suggest
-        </button>
-        <div class={styles.dropdownContent}>
-
-          {suggestedArray.map((suggestPokeData) => {
+      <div className={styles.dropdown}>
+        <button className={styles.dropbtn}>Suggest</button>
+        <div className={styles.dropdownContent}>
+          {suggestedArray.map((suggestPokeData, idx) => {
             return (
               <p
+                key={idx}
                 onClick={() => {
                   onSearchClicked(suggestPokeData);
                   setText(suggestPokeData);
                   searchFunction();
                 }}
-              >{suggestPokeData}</p>
+              >
+                {suggestPokeData}
+              </p>
             );
           })}
         </div>
       </div>
     </div>
-
   );
 };
 
@@ -118,11 +109,8 @@ SearchField.propTypes = {};
 
 export default SearchField;
 
-
 /*
 POINTS LEFT TO ACCOMPLISH...
-1.) Husky...
-2.) ESLint...
 3.) ErrorBoundary Add...
 4.) Make the search on click of suggested list itself and no need to reclick search for that...
 5.) Add these functionalities in My pokeDex App...
