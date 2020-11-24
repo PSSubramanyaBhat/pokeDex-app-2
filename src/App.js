@@ -6,6 +6,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import PokemonViewer from "./components/PokemonViewer/PokemonViewer";
 import SearchField from "./components/SearchField/SearchField";
 import { fetchAPokemon } from "./api";
+import NavBar from "./components/NavBar/NavBar";
 
 // const BASE_URL = "https://pokeapi.co/api/v2/";
 // `${BASE_URL}pokemon?limit=10&offset=200`
@@ -37,6 +38,8 @@ function App() {
 
   return (
     <div className="App">
+      {/* <NavBar /> */}
+      <NavBar />
       <SearchField
         onSearchClicked={(search) => setSearchTerm(search)}
         pokemonIDValue={pokemonIDValue}

@@ -2,15 +2,29 @@ import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import lget from "lodash/get";
 import styles from "./PokemonView.module.css";
+import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
+import { readFromStorage, writeToStorage } from "../../LocalStorage";
+
+const FAVOURITE = "favoriteList";
 
 const PokemonView = ({ pokemon }) => {
-  // const [pokeMoves, setPokeMoves] = useState([]);
-  // const [pokeAbility, setPokeAbility] = useState([]);
-  // const [pokeType, setPokeType] = useState([]);
+  const [bookmark, setBookmark] = useState(false);
+  const [favourites, setFavourites] = useState(
+    () => readFromStorage(FAVOURITE) || []
+  );
+
+  useEffect(() => {
+    writeToStorage(FAVOURITE, favourites);
+  }, [favourites]);
+
+  // useEffect(() => {
+  //   setBookmark(!bookmark);
+  // },[bookmark]);
 
   const move_arr = [];
   const abilitiy_arr = [];
   const type_arr = [];
+  // const favourite_arr = [];
 
   let pokemonImageURL = lget(
     pokemon,
@@ -82,6 +96,33 @@ const PokemonView = ({ pokemon }) => {
           alt="Pokemon"
         ></img>
         {/* <div>{pokemonIDValue}</div> */}
+      </div>
+      <div className={styles.Favourites}>
+        <p>Add to Favourites</p>
+        {bookmark === false ? (
+          <BsBookmark
+            className={styles.bookmarkIcon}
+            onClick={() => {
+              setBookmark(!bookmark);
+
+              setFavourites([...favourites, pokemon]);
+              writeToStorage(FAVOURITE, favourites);
+            }}
+          />
+        ) : (
+          <BsFillBookmarkFill
+            className={styles.bookmarkIcon}
+            onClick={() => {
+              setBookmark(!bookmark);
+
+              // let removeBookmark = [...favourites];
+              // let bookMarkArray = [...removeBookmark];
+              // deleteArray.splice(highlightMessage, 1);
+
+              // deleteArray.splice(highlightMessage, 1);
+            }}
+          />
+        )}
       </div>
       <div className={styles.PokemonInfo}>
         <p className={styles.PokeName}>{pokemonName}</p>

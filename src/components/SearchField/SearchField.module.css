@@ -1,6 +1,7 @@
 .SearchField {
   display: flex;
   margin-left: 300px;
+  margin-top: 70px;
   padding: 3px;
 }
 
@@ -13,26 +14,26 @@
   border-width: 2px;
   width: 230px;
   /* height: 30px; */
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .SearchButton {
   margin-left: 14px;
 }
 
-
 .dropdown {
   float: left;
   overflow: hidden;
 }
 
-.dropdown p{
+.dropdown p {
   margin-left: 0px;
   overflow: hidden;
 }
 
 .dropdown .dropbtn {
-  font-size: 16px;  
+  font-size: 16px;
   border: none;
   outline: none;
   /* color: white; */
@@ -40,12 +41,14 @@
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 12px;
   margin: 0;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover,
+.dropdown:hover .dropbtn {
   background-color: rgb(169, 229, 231);
   border-bottom: 1px solid #333;
 }
@@ -55,7 +58,7 @@
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 

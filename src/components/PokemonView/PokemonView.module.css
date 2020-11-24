@@ -4,7 +4,7 @@
   /* height: 400px; */
   height: 260px;
   width: 300px;
-  /* width: 289px; */
+  /* width: 290px; */
   margin-left: 300px;
   /* border: 1px solid red; */
   /* border: 1px solid grey; */
@@ -19,6 +19,40 @@
   animation: zoomin 500ms forwards 1;
 }
 
+.Favourites {
+  padding: 5px;
+  display: flex;
+  width: 300px;
+  margin-left: 300px;
+  padding-left: -90px;
+  border-bottom: 1px solid rgb(187, 183, 183);
+  border-left: 1px solid rgb(187, 183, 183);
+  border-right: 1px solid rgb(187, 183, 183);
+  background-color: #fff;
+  box-shadow: 10px 10px 15px #444;
+  /* justify-content: end;
+  text-align: end; */
+  /* align-items: center; */
+}
+
+.Favourites p {
+  font-size: 14px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin-top: 10px;
+  margin-left: 80px;
+  /* justify-content: end;
+  text-align: end;
+  align-items: center; */
+}
+
+.bookmarkIcon {
+  padding-top: 3px;
+  color: rgb(2, 63, 43);
+  height: 30px;
+  width: 30px;
+  /* box-shadow: 10px 10px 15px #444; */
+}
 @keyframes zoomin {
   /* from {
     transform: rotate(0deg);
