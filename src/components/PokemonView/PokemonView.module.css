@@ -67,7 +67,7 @@
   display: flex;
   flex-direction: column;
   /* height: 400px; */
-  height: 300px;
+  /* height: 300px; */
   width: 300px;
   margin-left: 300px;
   padding-left: -90px;
@@ -107,4 +107,16 @@ p {
 .PokemonCard {
   display: flex;
   flex-direction: column;
+}
+
+.PokemonFlexContainer {
+  display: flex;
+}
+.ShowLessMore {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: blue;
+  margin-left: 120px;
+  /* float: right; */
 }

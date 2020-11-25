@@ -12,6 +12,7 @@ const PokemonView = ({ pokemon }) => {
   const [favourites, setFavourites] = useState(
     () => readFromStorage(FAVOURITE) || []
   );
+  const [collapseWindow, setCollapseWindow] = useState(false);
 
   useEffect(() => {
     writeToStorage(FAVOURITE, favourites);
@@ -125,44 +126,61 @@ const PokemonView = ({ pokemon }) => {
         )}
       </div>
       <div className={styles.PokemonInfo}>
-        <p className={styles.PokeName}>{pokemonName}</p>
+        <div className={styles.PokemonFlexContainer}>
+          <p className={styles.PokeName}>{pokemonName}</p>
+          <p
+            className={styles.ShowLessMore}
+            onClick={() => {
+              setCollapseWindow(!collapseWindow);
+            }}
+          >
+            {collapseWindow ? "Show Less" : "Show More"}
+          </p>
+        </div>
         <p>
           <b>#</b>
           {pokemonIDValue}
         </p>
-        <p>
-          <b>Height: </b> {pokemonHeight}
-        </p>
-        <p>
-          <b>Weight: </b> {pokemonWeight}
-        </p>
-        <p>
-          <b>HP: </b> {pokemonBaseExperience}
-        </p>
-        <p>
-          <b>Types: </b>{" "}
-        </p>
-        <p className={styles.PokeArr}>
-          {type_arr.map((types, idx) => {
-            return <p key={idx}>{types}</p>;
-          })}
-        </p>
-        <p>
-          <b>Moves: </b>{" "}
-        </p>
-        <p className={styles.PokeArr}>
-          {move_arr.map((movesValue, idx) => {
-            return <p key={idx}>{movesValue}</p>;
-          })}
-        </p>
-        <p>
-          <b>Ability: </b>{" "}
-        </p>
-        <p className={styles.PokeArr}>
-          {abilitiy_arr.map((abilityValue, idx) => {
-            return <p key={idx}>{abilityValue}</p>;
-          })}
-        </p>
+
+        {collapseWindow ? (
+          <div>
+            <p>
+              <b>Height: </b> {pokemonHeight}
+            </p>
+            <p>
+              <b>Weight: </b> {pokemonWeight}
+            </p>
+            <p>
+              <b>HP: </b> {pokemonBaseExperience}
+            </p>
+            <p>
+              <b>Types: </b>{" "}
+            </p>
+            <p className={styles.PokeArr}>
+              {type_arr.map((types, idx) => {
+                return <p key={idx}>{types}</p>;
+              })}
+            </p>
+            <p>
+              <b>Moves: </b>{" "}
+            </p>
+            <p className={styles.PokeArr}>
+              {move_arr.map((movesValue, idx) => {
+                return <p key={idx}>{movesValue}</p>;
+              })}
+            </p>
+            <p>
+              <b>Ability: </b>{" "}
+            </p>
+            <p className={styles.PokeArr}>
+              {abilitiy_arr.map((abilityValue, idx) => {
+                return <p key={idx}>{abilityValue}</p>;
+              })}
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

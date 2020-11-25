@@ -7,7 +7,16 @@ import styles from "./PokemonViewer.module.css";
 const PokemonViewer = ({ pokemonData, status = "idle" }) => {
   return (
     <div className={styles.PokemonViewer}>
-      {status === "idle" && <div className={styles.HintStyle}> Idle: Please search for a pokemon</div>}
+      {status === "idle" && (
+        <div className={styles.HintStyle}>
+          <img
+            className={styles.IdleStatusImage}
+            src="https://cdn0.iconfinder.com/data/icons/movies-11/32/pokemon_movie_cinema_ball_pokeball-512.png"
+            alt="Search for Pokemons"
+          />
+          <p>Idle: Please search for a pokemon</p>
+        </div>
+      )}
       {status === "loading" && (
         <div className={styles.LoaderBoundary}>
           <Loader />

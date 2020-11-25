@@ -1,7 +1,10 @@
 .App {
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
+  margin-left: 150px;
+  /* border: 1px solid #000; */
+  width: 950px;
+  height: 850px;
 }
 
 .App ul {
