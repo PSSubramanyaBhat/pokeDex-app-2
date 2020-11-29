@@ -15,6 +15,12 @@ import Home from "./components/Home/Home";
 // `${BASE_URL}pokemon?limit=10&offset=200`
 
 function App() {
+  console.log("We are running in this env - ", process.env.NODE_ENV);
+  console.log(
+    "If We are in dev mode show this -: ",
+    process.env.REACT_APP_NOT_SECRET_CODE,
+    process.env.REACT_APP_NOT_SECRET_CODE1
+  );
   const [searchTerm, setSearchTerm] = useState("");
   const [pokemon, setPokemon] = useState(undefined);
   const [status, setStatus] = useState("idle");

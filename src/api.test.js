@@ -36,8 +36,6 @@ it("fetchPokemon test", async () => {
   }, 30000);
 });
 
-
-
 // async function suggestPokemons(pokemonName) {
 //   //The url to fetch 10 pokemons based on current pokemon...
 
@@ -46,6 +44,7 @@ it("fetchPokemon test", async () => {
 // }
 
 it("fetchPokemon test - non existent character", async () => {
+  console.log(process.env.NODE_ENV);
   jest.setTimeout(300000);
   const nonExistent = "dittoss";
   expect.assertions(1);
