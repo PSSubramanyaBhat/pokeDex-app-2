@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { on } from "process";
 import lget from "lodash/get";
-import { fetchPokemonURL, fetchAPokemon } from "../../api";
+import { fetchPokemonURL, fetchAPokemon } from "../../api/api";
 import styles from "./SearchField.module.css";
 import ErrorBoundary from "../../ErrorBoundary";
 

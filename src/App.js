@@ -1,10 +1,7 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import lget from "lodash/get";
-import ErrorBoundary from "./ErrorBoundary";
-import PokemonViewer from "./components/PokemonViewer/PokemonViewer";
-import SearchField from "./components/SearchField/SearchField";
-import { fetchAPokemon } from "./api";
+import { fetchAPokemon } from "./api/api";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import NavBar from "./components/NavBar/NavBar";
 import Favourites from "./components/Favourites/Favourites";

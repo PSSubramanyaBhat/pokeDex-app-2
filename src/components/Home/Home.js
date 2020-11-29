@@ -5,10 +5,10 @@ import React, { useEffect, useState } from "react";
 import lget from "lodash/get";
 // import ErrorBoundary from "./ErrorBoundary";
 import ErrorBoundary from "../../ErrorBoundary";
-import PokemonViewer from "../../components/PokemonViewer/PokemonViewer";
+import PokemonViewer from "../../components/PokemonViewer";
 import SearchField from "../../components/SearchField/SearchField";
 // import { fetchAPokemon } from "./api";
-import { fetchAPokemon } from "../../api";
+import { fetchAPokemon } from "../../api/api";
 // import NavBar from "./components/NavBar/NavBar";
 
 const Home = (props) => {

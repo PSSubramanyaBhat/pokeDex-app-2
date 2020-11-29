@@ -1,3 +1,7 @@
+import environment from "../environments";
+import lget from "lodash/get";
+import ditto from "./mocks/ditto.json";
+
 // const BASE_URL = "https://pokeapi.co/api/v2/";
 const BASE_URL =
   process.env.NODE_ENV === "development"
@@ -26,7 +30,17 @@ async function fetchPokemonURL(url) {
 
 async function fetchAPokemon(pokemonName) {
   //The url to fetch a pokemon should have subpath: pokemon
-  const pokeMonURL = `${BASE_URL}pokemon/${pokemonName}`;
+  // const pokeMonURL = `${BASE_URL}pokemon/${pokemonName}`;
+
+  if (environment.shouldMock) {
+    //load the json file and return its content
+    if (pokemonName === "ditto") {
+      return new Promise((resolve) => resolve(ditto));
+    }
+  }
+
+  const pokeMonURL = `${lget(environment.api.baseURL)}pokemon/${pokemonName}`;
+
   return await fetchPokemonURL(pokeMonURL);
 }
 
