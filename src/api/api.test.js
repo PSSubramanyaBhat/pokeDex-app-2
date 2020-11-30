@@ -52,3 +52,13 @@ it("fetchPokemon test - non existent character", async () => {
     expect(error).not.toBeNull();
   });
 });
+
+it("fetchPokemon test - ditto character", async () => {
+  console.log(process.env.NODE_ENV);
+  jest.setTimeout(300000);
+  const nonExistent = "ditto";
+  expect.assertions(0);
+  return fetchAPokemon(nonExistent).catch((error) => {
+    expect(error).not.toBeNull();
+  });
+});

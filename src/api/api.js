@@ -1,6 +1,6 @@
 import environment from "../environments";
 import lget from "lodash/get";
-import ditto from "./mocks/ditto.json";
+// import { fetchPokemon as fetchPokemonJSON } from './mocks/api.mocks';
 
 // const BASE_URL = "https://pokeapi.co/api/v2/";
 const BASE_URL =
@@ -40,7 +40,10 @@ async function fetchAPokemon(pokemonName) {
   if (environment.shouldMock) {
     //load the json file and return its content
     if (pokemonName === "ditto") {
-      return new Promise((resolve) => resolve(ditto));
+      return import("./mocks/api.mocks").then((mockJson) => {
+        return mockJson.fetchPokemon(pokemonName);
+      });
+      // return new Promise((resolve) => resolve(fetchPokemonJSON(pokemonName)));
     }
   }
 

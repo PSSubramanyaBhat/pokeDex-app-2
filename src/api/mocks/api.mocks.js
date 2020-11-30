@@ -1,7 +1,6 @@
-import ditto from "./mocks/ditto.json";
-
+import ditto from "./ditto.json";
 const mocks = { ditto };
 
-// export default fetchMoken(pokemonName) {
-//     return mocks[pokemonName]
-// }
+export function fetchPokemon(pokemonName) {
+  return mocks[pokemonName];
+}
