@@ -2,16 +2,23 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import lget from "lodash/get";
 import { fetchAPokemon } from "./api/api";
+import cn from "classnames";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import NavBar from "./components/NavBar/NavBar";
 import Favourites from "./components/Favourites/Favourites";
 import Facts from "./components/Facts/Facts";
 import Home from "./components/Home/Home";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GrOverview } from "react-icons/gr";
+import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 
 // const BASE_URL = "https://pokeapi.co/api/v2/";
 // `${BASE_URL}pokemon?limit=10&offset=200`
 
 function App() {
+  const [selectedPage, setSelectedPage] = useState(0);
+  const [drawerState, setDrawerState] = useState(true);
+
   console.log("We are running in this env - ", process.env.NODE_ENV);
   console.log(
     "If We are in dev mode show this -: ",
@@ -45,25 +52,91 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <ul>
-          <li>
-            <Link to="/">View</Link>
-          </li>
-          <li>
-            <Link to="/favourites">Favourites</Link>
-          </li>
-          <li>
-            <Link to="/facts">Facts</Link>
-          </li>
-        </ul>
+        <div
+          className={cn("DrawerStyle", {
+            DrawerClosedStyle: drawerState === false,
+          })}
+        >
+          <GiHamburgerMenu
+            className="DrawerIcon"
+            onClick={() => {
+              setDrawerState(!drawerState);
+            }}
+          />
+          {drawerState === true ? (
+            <div>
+              <img
+                className="AppImage"
+                src="https://cdn0.iconfinder.com/data/icons/movies-11/32/pokemon_movie_cinema_ball_pokeball-512.png"
+                alt="Search for Pokemons"
+              />
+              <h2 className="AppName">PokeDex</h2>
+              <ul>
+                <li>
+                  {/* <GrOverview
+                    className="DrawerIconOption"
+                  /> */}
+                  <Link
+                    to="/"
+                    style={{
+                      textDecoration: "none",
+                      // fontSize: '15px',
+                      // fontWeight: '600',
+                      // borderBottom: '2px solid red',
+                      // fontFamily: 'Montserrat'
+                    }}
+                  >
+                    View
+                  </Link>
+                </li>
+                <li>
+                  {/* <BsFillBookmarkFill
+                    className="DrawerIconOption"
+                  /> */}
+                  <Link
+                    to="/favourites"
+                    style={{
+                      textDecoration: "none",
+                      // fontSize: '15px',
+                      // fontWeight: '600',
+                      // borderBottom: '2px solid red',
+                      // fontFamily: 'Montserrat'
+                    }}
+                  >
+                    Favourites
+                  </Link>
+                </li>
+                {/* <li
+            >
+              <Link to="/facts"
+              style={{
+                textDecoration: 'none',
+                fontSize: '15px',
+                fontWeight: '600',
+                borderBottom: '2px solid red',
+                // fontFamily: 'Montserrat'
+              }}
+            >
+              Facts
+            </Link>
+            </li> */}
+              </ul>
+            </div>
+          ) : (
+            <div>
+              <GrOverview className="DrawerIconOption1" />
+              <BsFillBookmarkFill className="DrawerIconOption2" />
+            </div>
+          )}
+        </div>
 
         <Switch>
           <Route path="/favourites">
             <Favourites />
           </Route>
-          <Route path="/facts">
+          {/* <Route path="/facts">
             <Facts />
-          </Route>
+          </Route> */}
           <Route path="/">
             <Home />
           </Route>

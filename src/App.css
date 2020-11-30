@@ -1,73 +1,56 @@
 .App {
   display: flex;
-  flex-direction: column;
-  margin-left: 150px;
+  /* flex-direction: column; */
+  /* margin-left: 150px; */
+  /* margin-left: 50px; */
   /* border: 1px solid #000; */
-  width: 950px;
+  width: 450px;
   height: 850px;
 }
 
 .App ul {
   display: flex;
-  margin-left: 250px;
+  flex-direction: column;
+  margin-left: -85px;
+  margin-top: 40px;
+  padding-left: 130px;
   /* margin-bottom: 0px; */
   list-style: none outside none;
 }
 
 .App ul li {
-  padding-left: 55px;
-}
-
-.NavButton {
-  color: black;
-  text-decoration: none;
+  padding-left: 35px;
+  padding-right: 35px;
+  text-align: center;
+  margin-top: 30px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 400;
   font-size: 15px;
-  outline: none;
-  border: none;
-  border-color: #fff;
-  background-color: white;
-}
-
-.NavButtonSelected {
-  color: black;
-  text-decoration: none;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 15px;
-  outline: none;
-  border: none;
-  border-color: #fff;
-  border-bottom: 2px solid rgb(3, 5, 4);
-  background-color: white;
-}
-
-/* .NavBar {
-  display: flex;
-  align-items: center;
+  border-bottom: 1px solid #c3c3c3;
+  padding-top: -10px;
+  padding-bottom: 20px;
   justify-content: space-between;
-  margin-left: 205px;
-  color: #000;
-  opacity: 0.8;
-  width: 100%;
-  height: 70px;
-  position: fixed;
-  top: 0px;
-  padding: 0 30px;
-  transition: 0.5s ease-in;
 }
 
-.NavBar ul {
-  display: flex;
-  list-style: none outside none;
+/* .App img {
+  height: 50px;
+  width: 50px;
+} */
+.AppImage {
+  height: 100px;
+  width: 100px;
+  margin-left: 70px;
 }
 
-.NavBar ul li {
-  padding-left: 55px;
+.AppName {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin-left: 65px;
+  margin-top: 5px;
 }
 
-.NavButton {
+.PageRouterStyling {
   color: black;
   text-decoration: none;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -79,7 +62,7 @@
   background-color: white;
 }
 
-.NavButtonSelected {
+.PageRouterSelectedStyling {
   color: black;
   text-decoration: none;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -90,4 +73,68 @@
   border-color: #fff;
   border-bottom: 2px solid rgb(3, 5, 4);
   background-color: white;
-} */
+}
+
+.DrawerStyle {
+  /* margin-top: 30px; */
+  padding-top: 10px;
+  /* height: 70vh; */
+  height: 100vh;
+  width: 200px;
+  /* width: 60px; */
+  padding-right: 60px;
+  box-shadow: 10px 10px 30px #444;
+  /* transition: 0.5s ease-in; */
+  animation: expand 0.5s linear 1;
+}
+
+.DrawerClosedStyle {
+  /* margin-top: 30px; */
+  padding-top: 10px;
+  /* height: 70vh; */
+  height: 100vh;
+  /* width: 30vh; */
+  width: 0px;
+  padding-right: 60px;
+  box-shadow: 10px 10px 30px #444;
+  animation: collapse 0.5s linear 1;
+}
+
+.DrawerIcon {
+  margin-left: 15px;
+  /* margin-top: -140px; */
+  height: 20px;
+  width: 20px;
+  color: rgb(72, 72, 145);
+}
+
+.DrawerIconOption1 {
+  margin-left: 15px;
+  margin-top: 200px;
+  height: 25px;
+  width: 25px;
+  color: rgb(86, 86, 201);
+}
+
+.DrawerIconOption2 {
+  margin-left: 15px;
+  margin-top: 30px;
+  height: 25px;
+  width: 25px;
+  color: rgb(86, 86, 201);
+}
+
+@keyframes expand {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 200px;
+  }
+}
+
+@keyframes collapse {
+  to {
+    width: 0px;
+  }
+}

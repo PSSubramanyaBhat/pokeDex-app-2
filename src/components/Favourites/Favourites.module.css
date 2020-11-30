@@ -1,8 +1,9 @@
 .Favourites {
   display: inline-flex;
   /* flex-direction: column; */
-  margin-left: 25px;
-  margin-top: 30px;
+  margin-left: -35px;
+  margin-top: 60px;
+  /* margin-top: 10px; */
   /* flex-wrap: wrap; */
 }
 .PoekmonFavourites {

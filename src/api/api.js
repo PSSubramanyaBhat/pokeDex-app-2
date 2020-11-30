@@ -13,6 +13,11 @@ const BASE_URL =
 
 // const BASE_URL = "https://pokeapi.co/api/v2/";
 
+console.log("The current environment... ", process.env.NODE_ENV);
+
+let URLvar = lget(environment, "api.baseURL");
+console.log("Fetched Varibale... ", URLvar);
+
 async function fetchPokemonURL(url) {
   let response = await fetch(url);
 
@@ -39,7 +44,14 @@ async function fetchAPokemon(pokemonName) {
     }
   }
 
-  const pokeMonURL = `${lget(environment.api.baseURL)}pokemon/${pokemonName}`;
+  // let URLvar = lget(environment.api.baseURL);
+  // console.log("Fetched Varibale... ",URLvar);
+
+  //DOUBT ---> // const pokeMonURL = `${lget(environment.api.baseURL)}pokemon/${pokemonName}`; // sir's code...
+  const pokeMonURL = `${lget(
+    environment,
+    "api.baseURL"
+  )}pokemon/${pokemonName}`;
 
   return await fetchPokemonURL(pokeMonURL);
 }
