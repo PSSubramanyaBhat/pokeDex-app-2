@@ -16,9 +16,6 @@ import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 // `${BASE_URL}pokemon?limit=10&offset=200`
 
 function App() {
-  const [selectedPage, setSelectedPage] = useState(0);
-  const [drawerState, setDrawerState] = useState(true);
-
   console.log("We are running in this env - ", process.env.NODE_ENV);
   console.log(
     "If We are in dev mode show this -: ",
@@ -28,6 +25,9 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [pokemon, setPokemon] = useState(undefined);
   const [status, setStatus] = useState("idle");
+
+  const [selectedPage, setSelectedPage] = useState(0);
+  const [drawerState, setDrawerState] = useState(true);
 
   useEffect(() => {
     if (searchTerm === "") {
@@ -72,7 +72,14 @@ function App() {
               />
               <h2 className="AppName">PokeDex</h2>
               <ul>
-                <li>
+                <li
+                  className={cn("DrawerOptionNames", {
+                    DrawerOptionNamesSelectes: selectedPage === 0,
+                  })}
+                  onClick={() => {
+                    setSelectedPage(0);
+                  }}
+                >
                   {/* <GrOverview
                     className="DrawerIconOption"
                   /> */}
@@ -80,6 +87,7 @@ function App() {
                     to="/"
                     style={{
                       textDecoration: "none",
+                      // color:'black',
                       // fontSize: '15px',
                       // fontWeight: '600',
                       // borderBottom: '2px solid red',
@@ -89,7 +97,14 @@ function App() {
                     View
                   </Link>
                 </li>
-                <li>
+                <li
+                  className={cn("DrawerOptionNames", {
+                    DrawerOptionNamesSelectes: selectedPage === 1,
+                  })}
+                  onClick={() => {
+                    setSelectedPage(1);
+                  }}
+                >
                   {/* <BsFillBookmarkFill
                     className="DrawerIconOption"
                   /> */}
@@ -97,6 +112,7 @@ function App() {
                     to="/favourites"
                     style={{
                       textDecoration: "none",
+                      // color:'black'
                       // fontSize: '15px',
                       // fontWeight: '600',
                       // borderBottom: '2px solid red',
