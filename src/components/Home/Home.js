@@ -1,15 +1,17 @@
-// import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Home.module.css";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import lget from "lodash/get";
-// import ErrorBoundary from "./ErrorBoundary";
 import ErrorBoundary from "../../ErrorBoundary";
-import PokemonViewer from "../../components/PokemonViewer";
+import PokemonViewer from "../../components/PokemonViewer"; //PERFECTLY WORKING...
 import SearchField from "../../components/SearchField/SearchField";
-// import { fetchAPokemon } from "./api";
 import { fetchAPokemon } from "../../api/api";
-// import NavBar from "./components/NavBar/NavBar";
+
+// let PokemonViewer = undefined;
+// let PokemonViewer:React.ReactNode = null;
+// let PokemonV iewer = null;
+
+// const PokemonViewer = React.lazy(() => import('../../components/PokemonViewer'));//WOKRING FINE...
 
 const Home = (props) => {
   // return <div className={styles.Home}></div>;
@@ -37,6 +39,16 @@ const Home = (props) => {
   }, [searchTerm]);
 
   let pokemonIDValue = lget(pokemon, "id");
+
+  /*const mounted = useRef(false);
+  useEffect(() => {
+
+    if (mounted && mounted.current === false && searchTerm !== '') {
+      PokemonViewer = React.lazy(() => import('../../components/PokemonViewer'));
+      mounted.current = false;
+    }
+  }, [searchTerm]);
+  */
 
   return (
     // <div className="App">

@@ -45,18 +45,27 @@ async function fetchAPokemon(pokemonName) {
       });
       // return new Promise((resolve) => resolve(fetchPokemonJSON(pokemonName)));
     }
+    throw new Error("The requested pokemon is not found in the mock folder");
+  } else {
+    // const pokeMonURL = `${lget(environment.api.baseURL)}pokemon/${pokemonName}`; // sir's code...
+    const pokeMonURL = `${lget(
+      environment,
+      "api.baseURL"
+    )}pokemon/${pokemonName}`; // sir's code...
+    return await fetchPokemonURL(pokeMonURL);
   }
 
   // let URLvar = lget(environment.api.baseURL);
   // console.log("Fetched Varibale... ",URLvar);
 
   //DOUBT ---> // const pokeMonURL = `${lget(environment.api.baseURL)}pokemon/${pokemonName}`; // sir's code...
-  const pokeMonURL = `${lget(
+
+  /*const pokeMonURL = `${lget(
     environment,
     "api.baseURL"
   )}pokemon/${pokemonName}`;
 
-  return await fetchPokemonURL(pokeMonURL);
+  return await fetchPokemonURL(pokeMonURL);*/
 }
 
 export { fetchPokemonURL, fetchAPokemon };

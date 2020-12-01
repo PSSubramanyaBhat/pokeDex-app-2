@@ -23,13 +23,15 @@
     "*.(js|css)": [
       "npm run format",
       "prettier --write",
-      "git add"
+      "git add",
+      "npm run lint-js"
     ],
     "*.pretty-quick": "prettier --write"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build_serve": "rm -rf ./build && npm run build && npx serve ./build",
     "test": "react-scripts test",
     "test_no_watch": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",

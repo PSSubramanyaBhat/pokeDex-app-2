@@ -4,13 +4,12 @@ import lget from "lodash/get";
 import { fetchAPokemon } from "./api/api";
 import cn from "classnames";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import NavBar from "./components/NavBar/NavBar";
 import Favourites from "./components/Favourites/Favourites";
-import Facts from "./components/Facts/Facts";
 import Home from "./components/Home/Home";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrOverview } from "react-icons/gr";
-import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
+import { BsFillBookmarkFill } from "react-icons/bs";
+import Drawer from "./components/Drawer/Drawer";
 
 // const BASE_URL = "https://pokeapi.co/api/v2/";
 // `${BASE_URL}pokemon?limit=10&offset=200`
@@ -50,6 +49,8 @@ function App() {
   let pokemonIDValue = lget(pokemon, "id");
 
   return (
+    // <Drawer/> //NOT COMPLETELY Working....
+
     <Router>
       <div className="App">
         <div
@@ -74,24 +75,16 @@ function App() {
               <ul>
                 <li
                   className={cn("DrawerOptionNames", {
-                    DrawerOptionNamesSelectes: selectedPage === 0,
+                    DrawerOptionNamesSelected: selectedPage === 0,
                   })}
                   onClick={() => {
                     setSelectedPage(0);
                   }}
                 >
-                  {/* <GrOverview
-                    className="DrawerIconOption"
-                  /> */}
                   <Link
                     to="/"
                     style={{
                       textDecoration: "none",
-                      // color:'black',
-                      // fontSize: '15px',
-                      // fontWeight: '600',
-                      // borderBottom: '2px solid red',
-                      // fontFamily: 'Montserrat'
                     }}
                   >
                     View
@@ -99,43 +92,21 @@ function App() {
                 </li>
                 <li
                   className={cn("DrawerOptionNames", {
-                    DrawerOptionNamesSelectes: selectedPage === 1,
+                    DrawerOptionNamesSelected: selectedPage === 1,
                   })}
                   onClick={() => {
                     setSelectedPage(1);
                   }}
                 >
-                  {/* <BsFillBookmarkFill
-                    className="DrawerIconOption"
-                  /> */}
                   <Link
                     to="/favourites"
                     style={{
                       textDecoration: "none",
-                      // color:'black'
-                      // fontSize: '15px',
-                      // fontWeight: '600',
-                      // borderBottom: '2px solid red',
-                      // fontFamily: 'Montserrat'
                     }}
                   >
                     Favourites
                   </Link>
                 </li>
-                {/* <li
-            >
-              <Link to="/facts"
-              style={{
-                textDecoration: 'none',
-                fontSize: '15px',
-                fontWeight: '600',
-                borderBottom: '2px solid red',
-                // fontFamily: 'Montserrat'
-              }}
-            >
-              Facts
-            </Link>
-            </li> */}
               </ul>
             </div>
           ) : (
@@ -145,14 +116,10 @@ function App() {
             </div>
           )}
         </div>
-
         <Switch>
           <Route path="/favourites">
             <Favourites />
           </Route>
-          {/* <Route path="/facts">
-            <Facts />
-          </Route> */}
           <Route path="/">
             <Home />
           </Route>

@@ -1,8 +1,10 @@
 import Loader from "../Loader/Loader";
 import PokemonView from "../PokemonView/PokemonView";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Suspense } from "react";
 import styles from "./PokemonViewer.module.css";
+
+// const Loader = React.lazy(() => import('../Loader/Loader'));
 
 const PokemonViewer = ({ pokemonData, status = "idle" }) => {
   return (
@@ -20,6 +22,9 @@ const PokemonViewer = ({ pokemonData, status = "idle" }) => {
       {status === "loading" && (
         <div className={styles.LoaderBoundary}>
           <Loader />
+          {/* <Suspense fallback={<div>Loading the loader!...</div>}>
+            <Loader />
+          </Suspense> */}
         </div>
       )}
       {status === "resolved" && <PokemonView pokemon={pokemonData} />}

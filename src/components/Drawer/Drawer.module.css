@@ -1,39 +1,14 @@
-.App {
-  display: flex;
-  /* flex-direction: column; */
-  /* margin-left: 150px; */
-  /* margin-left: 50px; */
-  /* border: 1px solid #000; */
-  width: 450px;
-  height: 850px;
+.Drawer {
 }
 
-.App ul {
+.Drawer ul {
   display: flex;
   flex-direction: column;
   margin-left: -85px;
   margin-top: 55px;
   padding-left: 130px;
-  /* margin-bottom: 0px; */
   list-style: none outside none;
 }
-
-/* .App ul li {
-  padding-left: 35px;
-  padding-right: 35px;
-  text-align: center;
-  margin-top: 10px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  width: 21.75vh;
-  margin-left: -45px;
-  border: 1px solid #c3c3c3;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  justify-content: space-between;
-} */
 
 .DrawerOptionNames {
   padding-left: 35px;
@@ -43,20 +18,15 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: 400;
   font-size: 15px;
-  /* width: 21.9vh; */
-  width: 11.9rem;
+  width: 21.9vh;
   margin-left: -45px;
-  /* border: 1px solid #c3c3c3; */
   padding-top: 20px;
   padding-bottom: 20px;
   justify-content: space-between;
   color: #ffffff;
-  /* background-color: rgb(182, 182, 238); */
-  /* animation: expand 0.5s linear 1; */
-  animation: appear 1s linear 1;
 }
 
-.DrawerOptionNamesSelected {
+.DrawerOptionNamesSelectes {
   padding-left: 35px;
   padding-right: 35px;
   text-align: center;
@@ -64,8 +34,7 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: 400;
   font-size: 15px;
-  /* width: 21.9vh; */
-  width: 11.9rem;
+  width: 21.9vh;
   margin-left: -45px;
   /* border: 1px solid #c3c3c3; */
   padding-top: 20px;
@@ -73,15 +42,12 @@
   justify-content: space-between;
   color: #ffffff;
   background-color: rgb(182, 182, 238);
-  /* animation: expand 0.5s linear 1; */
-  animation: appear 1s linear 1;
 }
 
 .AppImage {
   height: 100px;
   width: 100px;
   margin-left: 80px;
-  animation: appear 1s linear 1;
 }
 
 .AppName {
@@ -89,7 +55,6 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   margin-left: 75px;
   margin-top: 5px;
-  animation: appear 1s linear 1;
 }
 
 .PageRouterStyling {
@@ -161,25 +126,14 @@
 @keyframes expand {
   from {
     width: 0px;
-    /* opacity: 0; */
   }
   to {
     width: 200px;
-    /* opacity: 1; */
   }
 }
 
 @keyframes collapse {
   to {
     width: 0px;
-  }
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
