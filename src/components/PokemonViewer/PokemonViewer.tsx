@@ -6,8 +6,8 @@ import styles from "./PokemonViewer.module.css";
 // const Loader = React.lazy(() => import('../Loader/Loader'));
 
 interface PokemonProps {
-  pokemonData: object,
-  status: string
+  pokemonData: object | undefined;
+  status: string;
 }
 
 const PokemonViewer = ({ pokemonData, status = "idle" }: PokemonProps) => {

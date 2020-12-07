@@ -3,8 +3,8 @@ import styles from "./Home.module.css";
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import lget from "lodash/get";
 import ErrorBoundary from "../../ErrorBoundary";
-import PokemonViewer from "../../components/PokemonViewer"; //PERFECTLY WORKING...
-import SearchField from "../../components/SearchField/SearchField";
+import PokemonViewer from "../PokemonViewer"; //PERFECTLY WORKING...
+import SearchField from "../SearchField/SearchField";
 import { fetchAPokemon } from "../../api/api";
 
 // let PokemonViewer = undefined;
@@ -13,7 +13,8 @@ import { fetchAPokemon } from "../../api/api";
 
 // const PokemonViewer = React.lazy(() => import('../../components/PokemonViewer'));//WOKRING FINE...
 
-const Home = (props) => {
+// const Home = (props) => {
+const Home = () => {
   // return <div className={styles.Home}></div>;
 
   const [searchTerm, setSearchTerm] = useState("");
