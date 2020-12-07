@@ -1,12 +1,16 @@
 import Loader from "../Loader/Loader";
 import PokemonView from "../PokemonView/PokemonView";
-import PropTypes from "prop-types";
 import React, { Suspense } from "react";
 import styles from "./PokemonViewer.module.css";
 
 // const Loader = React.lazy(() => import('../Loader/Loader'));
 
-const PokemonViewer = ({ pokemonData, status = "idle" }) => {
+interface PokemonProps {
+  pokemonData: object,
+  status: string
+}
+
+const PokemonViewer = ({ pokemonData, status = "idle" }: PokemonProps) => {
   return (
     <div className={styles.PokemonViewer}>
       {status === "idle" && (

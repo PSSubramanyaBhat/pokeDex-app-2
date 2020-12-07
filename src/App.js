@@ -49,83 +49,83 @@ function App() {
   let pokemonIDValue = lget(pokemon, "id");
 
   return (
-    // <Drawer/> //NOT COMPLETELY Working....
+    <Drawer />
 
-    <Router>
-      <div className="App">
-        <div
-          className={cn("DrawerStyle", {
-            DrawerClosedStyle: drawerState === false,
-          })}
-        >
-          <GiHamburgerMenu
-            className="DrawerIcon"
-            onClick={() => {
-              setDrawerState(!drawerState);
-            }}
-          />
-          {drawerState === true ? (
-            <div>
-              <img
-                className="AppImage"
-                src="https://cdn0.iconfinder.com/data/icons/movies-11/32/pokemon_movie_cinema_ball_pokeball-512.png"
-                alt="Search for Pokemons"
-              />
-              <h2 className="AppName">PokeDex</h2>
-              <ul>
-                <li
-                  className={cn("DrawerOptionNames", {
-                    DrawerOptionNamesSelected: selectedPage === 0,
-                  })}
-                  onClick={() => {
-                    setSelectedPage(0);
-                  }}
-                >
-                  <Link
-                    to="/"
-                    style={{
-                      textDecoration: "none",
-                    }}
-                  >
-                    View
-                  </Link>
-                </li>
-                <li
-                  className={cn("DrawerOptionNames", {
-                    DrawerOptionNamesSelected: selectedPage === 1,
-                  })}
-                  onClick={() => {
-                    setSelectedPage(1);
-                  }}
-                >
-                  <Link
-                    to="/favourites"
-                    style={{
-                      textDecoration: "none",
-                    }}
-                  >
-                    Favourites
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <div>
-              <GrOverview className="DrawerIconOption1" />
-              <BsFillBookmarkFill className="DrawerIconOption2" />
-            </div>
-          )}
-        </div>
-        <Switch>
-          <Route path="/favourites">
-            <Favourites />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    /*// <Router>
+    //   <div className="App">
+    //     <div
+    //       className={cn("DrawerStyle", {
+    //         DrawerClosedStyle: drawerState === false,
+    //       })}
+    //     >
+    //       <GiHamburgerMenu
+    //         className="DrawerIcon"
+    //         onClick={() => {
+    //           setDrawerState(!drawerState);
+    //         }}
+    //       />
+    //       {drawerState === true ? (
+    //         <div>
+    //           <img
+    //             className="AppImage"
+    //             src="https://cdn0.iconfinder.com/data/icons/movies-11/32/pokemon_movie_cinema_ball_pokeball-512.png"
+    //             alt="Search for Pokemons"
+    //           />
+    //           <h2 className="AppName">PokeDex</h2>
+    //           <ul>
+    //             <li
+    //               className={cn("DrawerOptionNames", {
+    //                 DrawerOptionNamesSelected: selectedPage === 0,
+    //               })}
+    //               onClick={() => {
+    //                 setSelectedPage(0);
+    //               }}
+    //             >
+    //               <Link
+    //                 to="/"
+    //                 style={{
+    //                   textDecoration: "none",
+    //                 }}
+    //               >
+    //                 View
+    //               </Link>
+    //             </li>
+    //             <li
+    //               className={cn("DrawerOptionNames", {
+    //                 DrawerOptionNamesSelected: selectedPage === 1,
+    //               })}
+    //               onClick={() => {
+    //                 setSelectedPage(1);
+    //               }}
+    //             >
+    //               <Link
+    //                 to="/favourites"
+    //                 style={{
+    //                   textDecoration: "none",
+    //                 }}
+    //               >
+    //                 Favourites
+    //               </Link>
+    //             </li>
+    //           </ul>
+    //         </div>
+    //       ) : (
+    //         <div>
+    //           <GrOverview className="DrawerIconOption1" />
+    //           <BsFillBookmarkFill className="DrawerIconOption2" />
+    //         </div>
+    //       )}
+    //     </div>
+    //     <Switch>
+    //       <Route path="/favourites">
+    //         <Favourites />
+    //       </Route>
+    //       <Route path="/">
+    //         <Home />
+    //       </Route>
+    //     </Switch>
+    //   </div>
+    // </Router>*/
   );
 }
 

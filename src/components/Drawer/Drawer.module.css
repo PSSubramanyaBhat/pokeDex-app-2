@@ -1,4 +1,7 @@
 .Drawer {
+  display: flex;
+  width: 450px;
+  height: 850px;
 }
 
 .Drawer ul {

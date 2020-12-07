@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
+// import { render, screen } from "@testing-library/react";
 
-import Favourites from "./Favourites";
+// import Favourites from "./Favourites";
 
-test("renders Favourites", () => {
-  render(<Favourites />);
-});
+// test("renders Favourites", () => {
+//   render(<Favourites />);
+// });
