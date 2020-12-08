@@ -65,7 +65,6 @@ const Home = () => {
         {/* <PokemonViewer pokemonData={pokemon} status={status} /> */}
         <PokemonViewer pokemonData={pokemon} status={status} />
 
-
         {/* <PokemonViewer pokemonData={pokemon} status={status as Types.Status} /> */}
       </ErrorBoundary>
     </div>

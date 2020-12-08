@@ -25,7 +25,8 @@
     "*.(js|css)": [
       "npm run format",
       "prettier --write",
-      "git add"
+      "git add",
+      "npm run lint-js"
     ],
     "*.pretty-quick": "prettier --write"
   },

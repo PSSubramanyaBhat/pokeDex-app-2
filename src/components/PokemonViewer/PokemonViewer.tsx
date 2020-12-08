@@ -14,16 +14,14 @@ export enum Status {
 
 // type Status = 'idle' | 'loading' | 'resolved' | 'error';  //Method 4......
 
-
 export interface PokemonProps {
+  /**This represents the payload that you received for the backend */
   pokemonData: object | undefined;
+  /**This is the status of the component */
   status: string; //this is in general......  //Method 1......
   // status: 'idle' | 'loading' | 'resolved' | 'error';    //Method 2......
   // status: Status  //Method 3......
 }
-
-
-
 
 // const PokemonViewer = ({ pokemonData, status = "idle" }: PokemonProps) => {//Methos 1 and 2
 //Method 3 below......
@@ -65,19 +63,17 @@ PokemonViewer.propTypes = {};
 
 export default PokemonViewer;
 
-
 //START FROM TIME STAMP 33:00 and ask Mayur and Sri and start from 44:00......
-
 
 /*
 8/12/2020 PLANS......
-Finish 2/12
+Finish 2/12 ---> DONE
 then Finish 3/12
 the do HTML 3/10 of section 10
 then Finish 4/12
 Attend class
 finish 4/12
-finish 5/12
+finish 5/12 ---> DONE
 walking and talking
 then finish html section 10 and 11
 */
