@@ -4,6 +4,7 @@ import React, { Suspense, useEffect, useRef, useState } from "react";
 import lget from "lodash/get";
 import ErrorBoundary from "../../ErrorBoundary";
 import PokemonViewer from "../PokemonViewer"; //PERFECTLY WORKING...
+// import PokemonViewer, { Types } from "../PokemonViewer"; //PERFECTLY WORKING...
 import SearchField from "../SearchField/SearchField";
 import { fetchAPokemon } from "../../api/api";
 
@@ -60,7 +61,12 @@ const Home = () => {
         pokemonIDValue={pokemonIDValue}
       />
       <ErrorBoundary>
+        {/* <PokemonViewer pokemonData={pokemon} status={status as Status} /> */}
+        {/* <PokemonViewer pokemonData={pokemon} status={status} /> */}
         <PokemonViewer pokemonData={pokemon} status={status} />
+
+
+        {/* <PokemonViewer pokemonData={pokemon} status={status as Types.Status} /> */}
       </ErrorBoundary>
     </div>
   );

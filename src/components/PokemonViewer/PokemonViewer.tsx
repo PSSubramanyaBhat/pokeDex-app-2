@@ -5,15 +5,32 @@ import styles from "./PokemonViewer.module.css";
 
 // const Loader = React.lazy(() => import('../Loader/Loader'));
 
-interface PokemonProps {
-  pokemonData: object | undefined;
-  status: string;
+export enum Status {
+  Idle = "idle",
+  Loading = "loading",
+  Resolved = "resolved",
+  Error = "error",
 }
 
-const PokemonViewer = ({ pokemonData, status = "idle" }: PokemonProps) => {
+// type Status = 'idle' | 'loading' | 'resolved' | 'error';  //Method 4......
+
+
+export interface PokemonProps {
+  pokemonData: object | undefined;
+  status: string; //this is in general......  //Method 1......
+  // status: 'idle' | 'loading' | 'resolved' | 'error';    //Method 2......
+  // status: Status  //Method 3......
+}
+
+
+
+
+// const PokemonViewer = ({ pokemonData, status = "idle" }: PokemonProps) => {//Methos 1 and 2
+//Method 3 below......
+const PokemonViewer = ({ pokemonData, status = Status.Idle }: PokemonProps) => {
   return (
     <div className={styles.PokemonViewer}>
-      {status === "idle" && (
+      {status === Status.Idle && (
         <div className={styles.HintStyle}>
           <img
             className={styles.IdleStatusImage}
@@ -23,7 +40,7 @@ const PokemonViewer = ({ pokemonData, status = "idle" }: PokemonProps) => {
           <p>Idle: Please search for a pokemon</p>
         </div>
       )}
-      {status === "loading" && (
+      {status === Status.Loading && (
         <div className={styles.LoaderBoundary}>
           <Loader />
           {/* <Suspense fallback={<div>Loading the loader!...</div>}>
@@ -31,9 +48,11 @@ const PokemonViewer = ({ pokemonData, status = "idle" }: PokemonProps) => {
           </Suspense> */}
         </div>
       )}
-      {status === "resolved" && <PokemonView pokemon={pokemonData} />}
-      {status === "error" && (
-        <div className={styles.error}>
+      {status === Status.Resolved && <PokemonView pokemon={pokemonData} />}
+      {/* {status === "resolved" && <PokemonView pokemon={pokemonData} />} */}
+      {status === Status.Error && (
+        // <div className={styles.error}>
+        <div className={styles.Error}>
           {" "}
           Error: There was an error fetching the pokemon{" "}
         </div>
@@ -45,3 +64,20 @@ const PokemonViewer = ({ pokemonData, status = "idle" }: PokemonProps) => {
 PokemonViewer.propTypes = {};
 
 export default PokemonViewer;
+
+
+//START FROM TIME STAMP 33:00 and ask Mayur and Sri and start from 44:00......
+
+
+/*
+8/12/2020 PLANS......
+Finish 2/12
+then Finish 3/12
+the do HTML 3/10 of section 10
+then Finish 4/12
+Attend class
+finish 4/12
+finish 5/12
+walking and talking
+then finish html section 10 and 11
+*/

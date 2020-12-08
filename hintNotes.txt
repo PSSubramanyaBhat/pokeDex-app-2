@@ -1,3 +1,24 @@
 //If required...
 "react": "16.4.0",
 "react-dom": "16.4.0",
+
+//check into this in package.json...
+"npm run lint-js"
+
+//add types.ts in PokemonViewer
+// export enum Status {
+//     idle = "idle",
+//     loading = "loading",
+//     resolved = "resolved",
+//     error = "error",
+// }
+
+// type Status = 'idle' | 'loading' | 'resolved' | 'error';  //Method 4......
+
+
+// export interface PokemonProps {
+//     pokemonData: object | undefined;
+//     // status: string; //this is in general......  //Method 1......
+//     // status: 'idle' | 'loading' | 'resolved' | 'error';    //Method 2......
+//     status: Status  //Method 3......
+// }
